@@ -213,7 +213,7 @@
         <div class="content">
             <div class="sidebar">
                 <div class="info-box">
-                    <h4>⚠️ Rappel Important</h4>
+                    <h4>Rappel Important</h4>
                     <p>Cette analyse est basée sur des critères environnementaux généraux. Une étude de terrain détaillée est indispensable.</p>
                 </div>
                
@@ -225,7 +225,7 @@
                     </div>
                     <div class="legend-item">
                         <div class="legend-color" style="background: #ffc107; opacity: 0.6;"></div>
-                        <div class="legend-text"><strong>Zone acceptable</strong> sous conditions</div>
+                        <div class="legend-text"><strong>Zone alternatives</strong></div>
                     </div>
                     <div class="legend-item">
                         <div class="legend-color" style="background: #007bff;"></div>
@@ -233,14 +233,26 @@
                     </div>
                 </div>
                
+                <div class="legend-section">
+                    <h3>Zones à éviter</h3>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: #dc3545; opacity: 0.4;"></div>
+                        <div class="legend-text"><strong>Forêt dense mature</strong> (Sud)</div>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: #6c757d; opacity: 0.4;"></div>
+                        <div class="legend-text"><strong>Relief accidenté</strong> (Est)</div>
+                    </div>
+                </div>
+                
                 <div class="optimal-zone">
                     <h4>✅ Zone Recommandée Nord</h4>
                     <ul>
-                        <li>Proximité RD 368</li>
+                        <li>Proximité RD 420</li>
                         <li>Accès pompiers rapide</li>
                         <li>Pente modérée (<10%)</li>
-                        <li>Maquis dégradé (pas forêt mature)</li>
-                        <li>Distance sécurité forêt dense</li>
+                        <li>Maquis dégradé</li>
+                        <li>Distance de sécurité forêt dense</li>
                         <li>Visibilité paysagère limitée</li>
                         <li>Réseaux accessibles</li>
                     </ul>
@@ -291,13 +303,12 @@
             radius: 300
         }).addTo(map).bindPopup(`
             <h3>Centre-bourg de Zonza</h3>
-            <p><strong>Alternative recommandée n°1</strong></p>
+            <p><strong>Habitations principales</strong></p>
             <ul class="popup-criteria">
-                <li>✅ Pas de déboisement</li>
+                <li>✅ Proximité du site</li>
                 <li>✅ Risque incendie réduit</li>
                 <li>✅ Tous réseaux disponibles</li>
                 <li>✅ Densification urbaine</li>
-                <li>⚠️ Foncier à identifier</li>
             </ul>
         `);
        
@@ -315,8 +326,8 @@
         }).addTo(map);
        
         zoneOptimale.bindPopup(`
-            <h3>🎯 ZONE OPTIMALE (Recommandée)</h3>
-            <p><strong>Secteur Nord - Proximité D368</strong></p>
+            <h3>ZONE OPTIMALE</h3>
+            <p><strong>Secteur Nord - Proximité D420</strong></p>
             <ul class="popup-criteria">
                 <li><span class="score score-high">9/10</span> Accessibilité secours</li>
                 <li><span class="score score-high">8/10</span> Risque incendie maîtrisable</li>
@@ -331,7 +342,7 @@
             </p>
         `);
        
-        // Zone acceptable - Est
+        // Zone acceptable n°1
         const zoneAcceptable1 = L.polygon([
             [41.752, 9.178],
             [41.754, 9.178],
@@ -346,7 +357,7 @@
         }).addTo(map);
        
         zoneAcceptable1.bindPopup(`
-            <h3>Zone Acceptable - Est</h3>
+            <h3>Zone Acceptable - n°1</h3>
             <p><strong>Sous conditions strictes</strong></p>
             <ul class="popup-criteria">
                 <li><span class="score score-medium">6/10</span> Accessibilité SDIS</li>
@@ -362,7 +373,7 @@
             </p>
         `);
        
-        // Zone acceptable - Ouest
+        // Zone acceptable - n°2
         const zoneAcceptable2 = L.polygon([
             [41.747, 9.164],
             [41.749, 9.164],
@@ -377,7 +388,7 @@
         }).addTo(map);
        
         zoneAcceptable2.bindPopup(`
-            <h3>Zone Acceptable - Ouest</h3>
+            <h3>Zone Acceptable - n°2</h3>
             <p><strong>Alternative secondaire</strong></p>
             <ul class="popup-criteria">
                 <li><span class="score score-high">7/10</span> Accessibilité SDIS</li>
@@ -404,7 +415,7 @@
         }).addTo(map);
        
         zoneEviter1.bindPopup(`
-            <h3>⛔ ZONE À ÉVITER</h3>
+            <h3>ZONE À ÉVITER</h3>
             <p><strong>Forêt dense mature - Sud</strong></p>
             <ul class="popup-criteria">
                 <li><span class="score score-low">3/10</span> Risque incendie très élevé</li>
@@ -431,13 +442,13 @@
         }).addTo(map);
        
         zoneEviter2.bindPopup(`
-            <h3>⛔ ZONE À ÉVITER</h3>
+            <h3>ZONE À ÉVITER</h3>
             <p><strong>Relief très accidenté</strong></p>
             <ul class="popup-criteria">
                 <li><span class="score score-low">2/10</span> Pentes >25%</li>
                 <li><span class="score score-low">3/10</span> Risque érosion</li>
-                <li><span class="score score-low">4/10</span> Coût terrassement</li>
-                <li><span class="score score-low">3/10</span> Accessibilité</li>
+                <li><span class="score score-low">2/10</span> Relief très contraignant</li>
+                <li><span class="score score-low">3/10</span> Accessibilité difficile</li>
             </ul>
             <p style="color: #495057; font-weight: bold; margin-top: 10px;">
                 ❌ Contraintes techniques majeures
@@ -469,9 +480,9 @@
             <strong>🚒 Base forestière de Zonza</strong><br>
             <em>80 U Calvariu, 20124 Zonza</em><br><br>
             Temps d'intervention estimés:<br>
-            • Zone optimale Nord: <strong>4-6 min</strong><br>
-            • Zones acceptables: <strong>3-5 min</strong><br>
-            • Zones à éviter Sud: <strong>7-9 min</strong>
+            • Zone optimale : <strong>4-6 min</strong><br>
+            • Zones acceptable n°2 : <strong>4-6 min</strong><br>
+            • Zones à éviter n°1 : <strong>7-9 min</strong>
         `);
        
         // Caserne pompiers - 609 Strada di Livia
@@ -483,9 +494,9 @@
             <strong>🚒 Centre de Secours</strong><br>
             <em>609 Strada di Livia, 20124 Zonza</em><br><br>
             Temps d'intervention estimés:<br>
-            • Zone optimale Nord: <strong>5-7 min</strong><br>
-            • Zones acceptables Ouest: <strong>4-6 min</strong><br>
-            • Zones à éviter: <strong>2-3 min</strong>
+            • Zone optimale : <strong>5-7 min</strong><br>
+            • Zones acceptable n°2 : <strong>2-3 min</strong><br>
+            • Zones acceptable n°1 : <strong>6-8 min</strong>
         `);
        
         // Flèche pointant vers la zone optimale
@@ -527,3 +538,4 @@
 </body>
 
 </html>
+
